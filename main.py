@@ -30,3 +30,17 @@ ax = -gravity_acceleration * (x/distance)
 ay = -gravity_acceleration * (y/distance)
 print("x acceleration", ax)
 print("y acceleration", ay)
+
+#day2 V0.2 continued
+#so when the rocket is travelling, how much time passes in every simulated loop we use 1 second
+
+time_step = 1
+vx = vx+ax*time_step
+vy = vy+ay*time_step
+print("new vx:", vx)
+print("new vy:", vy)
+x = x+vx*time_step
+y = y+vy*time_step
+print("new x:", x)
+print("new y:", y)
+
