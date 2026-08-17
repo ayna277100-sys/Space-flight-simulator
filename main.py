@@ -24,23 +24,35 @@ vx = 0
 vy = speed
 # now calculkate the spacecraft distance from center of the earth 
 distance = (x ** 2 + y**2)**(1/2)
-print(distance)
-#we have magnitucde of gravitational acceleration we now need to code the direction that the gravity is actring in 
-ax = -gravity_acceleration * (x/distance)
-ay = -gravity_acceleration * (y/distance)
-print("x acceleration", ax)
-print("y acceleration", ay)
 
-#day2 V0.2 continued
-#so when the rocket is travelling, how much time passes in every simulated loop we use 1 second
+time_step = float(input("enter your time step pleaseee: ")) 
 
-time_step = 1
-vx = vx+ax*time_step
-vy = vy+ay*time_step
-print("new vx:", vx)
-print("new vy:", vy)
-x = x+vx*time_step
-y = y+vy*time_step
-print("new x:", x)
-print("new y:", y)
+# Ask user how long the simulation should run
+simulation_time = float(input("Enter total simulation time in seconds: "))
+
+# Start simulation time at zero
+time = 0
+
+# Repeat the physics calculations until simulation time is reached
+while time < simulation_time:
+    # Calculate current distance from Earth's centre
+    distance = (x**2 + y**2) ** (1/2)
+    # Recalculate gravitational acceleration at the new distance
+    gravity_acceleration = G * earth_mass / distance**2
+    # Calculate direction of gravitational acceleration
+    ax = -gravity_acceleration * (x / distance)
+    ay = -gravity_acceleration * (y / distance)
+    # Acceleration changes velocity
+    vx = vx + ax * time_step
+    vy = vy + ay * time_step
+    x = x + vx * time_step
+    y = y + vy * time_step
+    time = time + time_step
+
+
+print("Final x:", x)
+print("Final y:", y)
+print("Final vx:", vx)
+print("Final vy:", vy)
+
 
