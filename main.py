@@ -32,6 +32,11 @@ simulation_time = float(input("Enter total simulation time in seconds: "))
 
 # Start simulation time at zero
 time = 0
+x_positions=[x]
+y_positions=[y]
+vx_values=[vx]
+vy_values=[vy]
+time_values=[time]
 
 # Repeat the physics calculations until simulation time is reached
 while time < simulation_time:
@@ -47,12 +52,27 @@ while time < simulation_time:
     vy = vy + ay * time_step
     x = x + vx * time_step
     y = y + vy * time_step
+    #so we are just saving new psoition of spaceraft 
+    x_positions.append(x)
+    y_positions.append(y)
+    vx_values.append(vx)
+    vy_values.append(vy)
     time = time + time_step
-
+    time_values.append(time)
+exact_values = input("Would you like to see exact values? yes or nono: ")
+if exact values == "yes":
+    print(x_positions)
+else:
+    print([round(value, 2) for value in x_positions)
 
 print("Final x:", x)
 print("Final y:", y)
 print("Final vx:", vx)
 print("Final vy:", vy)
-
+print(time_values)
+print( x_positions)
+print( y_positions)
+print(vx_values)
+print( vy_values)
+print(time_values)
 
