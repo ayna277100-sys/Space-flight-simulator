@@ -60,10 +60,10 @@ while time < simulation_time:
     time = time + time_step
     time_values.append(time)
 exact_values = input("Would you like to see exact values? yes or nono: ")
-if exact values == "yes":
+if exact_values == "yes":
     print(x_positions)
 else:
-    print([round(value, 2) for value in x_positions)
+    print([round(value, 2) for value in x_positions])
 
 print("Final x:", x)
 print("Final y:", y)
@@ -76,3 +76,34 @@ print(vx_values)
 print( vy_values)
 print(time_values)
 
+print("\simulation results")
+print("-"*85)
+print( 
+    f"{'time (s)': <12}"
+     f"{'X position (m)': <18}"
+     f"{'Y position  (m)': <18}"
+     f"{'X velocity (m/s)': <19}"
+     f"{'Y veolcity (m/s)': <19}"
+    )
+print("time (s)' :<12")
+if exact_values == "yes":
+    time_display = time_values[i]
+    x_display = x_positions[i]
+    y_display = y_positions[i]
+    vx_display = vx_values[i]
+    vy_display = vy_valus[i]
+else:
+    time_display = round(time_values[i], 2)
+    x_display = round(x_positions[i], 2)
+    y_display = round(y_positions[i],2)
+    vx_display = round(vx_values[i], 2)
+    vy_display = round(vy_valus[i], 2)
+    print( 
+    f"{'time (s)': <12}"
+     f"{'X position (m)': <18}"
+     f"{'Y position  (m)': <18}"
+     f"{'X velocity (m/s)': <19}"
+     f"{'Y veolcity (m/s)': <19}"
+    )
+print("-" * 85)
+    
