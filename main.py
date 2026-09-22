@@ -85,7 +85,7 @@ print(
      f"{'X velocity (m/s)': <19}"
      f"{'Y veolcity (m/s)': <19}"
     )
-print("time (s)' :<12")
+for i in range (len(time_values))
 if exact_values == "yes":
     time_display = time_values[i]
     x_display = x_positions[i]
@@ -97,7 +97,7 @@ else:
     x_display = round(x_positions[i], 2)
     y_display = round(y_positions[i],2)
     vx_display = round(vx_values[i], 2)
-    vy_display = round(vy_valus[i], 2)
+    vy_display = round(vy_values[i], 2)
     print( 
     f"{'time (s)': <12}"
      f"{'X position (m)': <18}"
