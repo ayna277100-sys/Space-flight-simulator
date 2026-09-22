@@ -103,7 +103,7 @@ else:
      f"{'X position (m)': <18}"
      f"{'Y position  (m)': <18}"
      f"{'X velocity (m/s)': <19}"
-     f"{'Y veolcity (m/s)': <19}"
+     f"{'Y velocity (m/s)': <19}"
     )
 print("-" * 85)
     
