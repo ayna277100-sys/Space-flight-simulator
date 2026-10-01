@@ -83,10 +83,11 @@ print(
      f"{'X position (m)': <18}"
      f"{'Y position  (m)': <18}"
      f"{'X velocity (m/s)': <19}"
-     f"{'Y veolcity (m/s)': <19}"
+     f"{'Y velocity (m/s)': <19}"
     )
-for i in range (len(time_values))
-if exact_values == "yes":
+for i in range (len(time_values)):
+  
+  if exact_values == "yes":
     time_display = time_values[i]
     x_display = x_positions[i]
     y_display = y_positions[i]
