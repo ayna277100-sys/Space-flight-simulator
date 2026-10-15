@@ -4,39 +4,40 @@ G = 6.67430e-11
 earth_mass = 5.972e24
 earth_radius = 6.371e6
 #defining the basic quyanities for the equations 
-altitude_km = float(input("enter spacecraft alittude in km please: "))
+altitude_km = float(input("enter starting spacecraft alittude in km: "))
 altitude = altitude_km * 1000
 #converted to SI base units
 distance_from_earth_centre = earth_radius + altitude
 gravity_acceleration = G*earth_mass/distance_from_earth_centre**2
-print(gravity_acceleration)
+
 
 #ability to calculate the spoacecrafts gravitational accelaration at curent altitude
 #version 0.2 -  adding simple motion
 #allow the user to choose the starting speed of their spacecraft 
-speed = float(input("enter a starting speed in m/s please: "))
+speed = float(input("enter the spacecraft starting speed in m/s: "))
 #next give the spacecraft its 2D starting position 
 # earth is (0,0) and we use that spacecraft starts at the psotiive x -axis 
 x = distance_from_earth_centre
 y = 0
-#give spacecraft initional velocity 
+#give spacecraft its initial velocity 
 vx = 0
 vy = speed
-# now calculkate the spacecraft distance from center of the earth 
-distance = (x ** 2 + y**2)**(1/2)
+# now calculkate the spacecraft distance from center of the earth (deleted once loop runs its calculated anyways) 
 
-time_step = float(input("enter your time step pleaseee: ")) 
+
+time_step = float(input("enter simulation timne step in seconds: ")) 
 
 # Ask user how long the simulation should run
-simulation_time = float(input("Enter total simulation time in seconds: "))
+simulation_time = float(input("Enter total simulation  time in seconds: "))
 
 # Start simulation time at zero
 time = 0
-x_positions=[x]
-y_positions=[y]
-vx_values=[vx]
-vy_values=[vy]
-time_values=[time]
+#store the simulation history for each time step
+x_positions = [x]
+y_positions = [y]
+vx_values = [vx]
+vy_values = [vy]
+time_values = [time]
 
 # Repeat the physics calculations until simulation time is reached
 while time < simulation_time:
@@ -52,38 +53,26 @@ while time < simulation_time:
     vy = vy + ay * time_step
     x = x + vx * time_step
     y = y + vy * time_step
-    #so we are just saving new psoition of spaceraft 
+    #store the spacecrafts updated state for this time step  
+    time = time + time_step
+    time_values.append(time)
     x_positions.append(x)
     y_positions.append(y)
     vx_values.append(vx)
     vy_values.append(vy)
-    time = time + time_step
+   
     time_values.append(time)
-exact_values = input("Would you like to see exact values? yes or nono: ")
-if exact_values == "yes":
-    print(x_positions)
-else:
-    print([round(value, 2) for value in x_positions])
+    3asking user how these simulation results should be displayed
+exact_values = input("Would you like to see exact values? yes/no: ")
 
-print("Final x:", x)
-print("Final y:", y)
-print("Final vx:", vx)
-print("Final vy:", vy)
-print(time_values)
-print( x_positions)
-print( y_positions)
-print(vx_values)
-print( vy_values)
-print(time_values)
-
-print("\simulation results")
+print("\nsimulation results")
 print("-"*85)
 print( 
     f"{'time (s)': <12}"
-     f"{'X position (m)': <18}"
-     f"{'Y position  (m)': <18}"
-     f"{'X velocity (m/s)': <19}"
-     f"{'Y velocity (m/s)': <19}"
+     f"{'X Position (m)': <18}"
+     f"{'Y Position  (m)': <18}"
+     f"{'X Velocity (m/s)': <19}"
+     f"{'Y Velocity (m/s)': <19}"
     )
 for i in range (len(time_values)):
   
