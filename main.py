@@ -61,8 +61,8 @@ while time < simulation_time:
     vx_values.append(vx)
     vy_values.append(vy)
    
-    time_values.append(time)
-    3asking user how these simulation results should be displayed
+    
+    #asking user how these simulation results should be displayed
 exact_values = input("Would you like to see exact values? yes/no: ")
 
 print("\nsimulation results")
@@ -81,19 +81,21 @@ for i in range (len(time_values)):
     x_display = x_positions[i]
     y_display = y_positions[i]
     vx_display = vx_values[i]
-    vy_display = vy_valus[i]
-else:
+    vy_display = vy_values[i]
+  else:
+    
     time_display = round(time_values[i], 2)
     x_display = round(x_positions[i], 2)
     y_display = round(y_positions[i],2)
     vx_display = round(vx_values[i], 2)
     vy_display = round(vy_values[i], 2)
-    print( 
-    f"{'time (s)': <12}"
-     f"{'X position (m)': <18}"
-     f"{'Y position  (m)': <18}"
-     f"{'X velocity (m/s)': <19}"
-     f"{'Y velocity (m/s)': <19}"
+  print(
+        f"{time_display:<12}"
+        f"{x_display:<18}"
+        f"{y_display:<18}"
+        f"{vx_display:<19}"
+        f"{vy_display:<19}"
     )
+    
 print("-" * 85)
     
